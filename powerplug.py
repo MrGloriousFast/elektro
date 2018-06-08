@@ -49,7 +49,7 @@ def init_gpio():
 def press_button(button):
     # press it for one second
     GPIO.output(button,GPIO.HIGH)
-    print 'pressed gpio number: ' + button
+    print 'pressed gpio number: ' + str(button)
     time.sleep(1)  
   
     # stop pressing it
