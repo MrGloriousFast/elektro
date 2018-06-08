@@ -40,7 +40,7 @@ def init_gpio():
     button_off[5] = 24
 
     # set all gpio pins to output instead of input
-    for buttons in (button_on, button_off):
+    for buttons in (button_on.values(), button_off.values()):
         for b in buttons:
             GPIO.setup(b,GPIO.OUT)
             print 'gpio ' + str(b) + ' set to output'
