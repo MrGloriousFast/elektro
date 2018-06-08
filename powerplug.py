@@ -60,37 +60,38 @@ def press_button(button):
 def main():
     init_gpio()
     
-    #test all buttons once
-    
-    press_button(button_on[1])
-    time.sleep(1)
-    
-    press_button(button_on[2])
-    time.sleep(1)
-    
-    press_button(button_on[3])
-    time.sleep(1)
-    
-    press_button(button_on[4])
-    time.sleep(1)
-    
-    press_button(button_on[5])
-    time.sleep(1)
-    
-    press_button(button_off[1])
-    time.sleep(1)
-    
-    press_button(button_off[2])
-    time.sleep(1)
-    
-    press_button(button_off[3])
-    time.sleep(1)
-    
-    press_button(button_off[4])
-    time.sleep(1)
-    
-    press_button(button_off[5])
-    time.sleep(1)
+    while(1):
+        
+        #test all buttons once
+        press_button(button_on[1])
+        time.sleep(1)
+        
+        press_button(button_on[2])
+        time.sleep(1)
+        
+        press_button(button_on[3])
+        time.sleep(1)
+        
+        press_button(button_on[4])
+        time.sleep(1)
+        
+        press_button(button_on[5])
+        time.sleep(1)
+        
+        press_button(button_off[1])
+        time.sleep(1)
+        
+        press_button(button_off[2])
+        time.sleep(1)
+        
+        press_button(button_off[3])
+        time.sleep(1)
+        
+        press_button(button_off[4])
+        time.sleep(1)
+        
+        press_button(button_off[5])
+        time.sleep(1)
     
 if __name__ == "__main__":
     main()
