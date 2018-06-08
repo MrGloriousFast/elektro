@@ -17,13 +17,14 @@ powerplug all off
 import RPi.GPIO as GPIO
 import time
 
+# i dont know what this does but it was in a tutorial
+GPIO.setmode(GPIO.BCM)
+GPIO.setwarnings(False)
+
 button_on  = {}
 button_off = {}
 
 def init_gpio():
-    # i dont know what this does but it was in a tutorial
-    GPIO.setmode(GPIO.BCM)
-    GPIO.setwarnings(False)
 
     # mapping of gpio pin number and the powerplug button number
     # there are 10 buttons in total
@@ -42,18 +43,19 @@ def init_gpio():
     # set all gpio pins to output instead of input
     for buttons in (button_on.values(), button_off.values()):
         for b in buttons:
-            GPIO.setup(b,GPIO.OUT)
+            GPIO.setup(b, GPIO.OUT)
             print 'gpio ' + str(b) + ' set to output'
 
-#will press a button for one seconds
+#will press a button for one second
 def press_button(button):
     # press it for one second
-    GPIO.output(button,GPIO.HIGH)
-    print 'pressed gpio number: ' + str(button)
+    GPIO.output(button, GPIO.HIGH)
+    print 'pressing gpio number: ' + str(button)
     time.sleep(1)  
   
     # stop pressing it
     GPIO.output(button,GPIO.LOW)
+    print '\t stop pressing gpio number: ' + str(button)
 
 def main():
     init_gpio()
