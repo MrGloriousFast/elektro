@@ -3,6 +3,7 @@ General notes:
 
 gpio pins i have hardware wired into the breadboard:
 5 6 12 13 16 19 20 21 23 24 26
+gpio 26 does not press any button i just have even numbered cable jumpers
 
 command line command should look like this:
 
@@ -15,7 +16,7 @@ powerplug all off
 
 '''
 import RPi.GPIO as GPIO
-import time
+import time, sys
 
 # i dont know what this does but it was in a tutorial
 GPIO.setmode(GPIO.BCM)
@@ -57,10 +58,18 @@ def press_button(button):
     GPIO.output(button,GPIO.LOW)
     print '\t stop pressing gpio number: ' + str(button)
 
-def main():
-    init_gpio()
+def command_line_input(command):
+    print str(command)
     
-    while(1):
+    for c in command:
+        print str(c)
+    
+
+def main():
+    init_gpio()   
+    command_line_input(sys.argv)
+    
+    while(False):
         
         #test all buttons once
         press_button(button_on[1])
