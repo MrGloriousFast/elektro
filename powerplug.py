@@ -45,7 +45,7 @@ def init_gpio():
     for buttons in (button_on.values(), button_off.values()):
         for b in buttons:
             GPIO.setup(b, GPIO.OUT)
-            print 'gpio ' + str(b) + ' set to output'
+            # print 'gpio ' + str(b) + ' set to output'
 
 #will press a button for one second
 def press_button(button):
@@ -59,8 +59,6 @@ def press_button(button):
     print '\t stop pressing gpio number: ' + str(button)
 
 def command_line_input(command):
-    for c in command:
-        print str(c)
         
     # get the last one
     on_or_off = command[-1]
