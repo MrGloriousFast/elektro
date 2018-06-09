@@ -59,48 +59,38 @@ def press_button(button):
     print '\t stop pressing gpio number: ' + str(button)
 
 def command_line_input(command):
-    print str(command)
-    
     for c in command:
         print str(c)
+        
+    # get the last one
+    on_or_off = command[-1]
+    
+    # get which button should do something
+    button = command[-2]
+    
+    # i know there is probably a better way
+    # but we will just check for the last two arguments to be one of our keywords
+    # then we will turn on off the buttons
+    
+    if on_or_off not in ['on', 'ON', 'off', 'OFF'] or button not in ['1', '2', '3', '4', '5', 'all', 'ALL']:
+        print 'wrong input '+ str(button) + ' ' + str(on_or_off)
+        return
+    
+    if button in ['all', 'ALL']:
+        button = 5
+        
+    # tansform into an int
+    button = int(button)
+    
+    if on_or_off in ['on', 'ON']:
+        press_button(button_on[button])
+    elif on_or_off in ['off', 'OFF']:
+        press_button(button_off[button])
     
 
 def main():
     init_gpio()   
     command_line_input(sys.argv)
-    
-    while(False):
-        
-        #test all buttons once
-        press_button(button_on[1])
-        time.sleep(1)
-        
-        press_button(button_on[2])
-        time.sleep(1)
-        
-        press_button(button_on[3])
-        time.sleep(1)
-        
-        press_button(button_on[4])
-        time.sleep(1)
-        
-        press_button(button_on[5])
-        time.sleep(1)
-        
-        press_button(button_off[1])
-        time.sleep(1)
-        
-        press_button(button_off[2])
-        time.sleep(1)
-        
-        press_button(button_off[3])
-        time.sleep(1)
-        
-        press_button(button_off[4])
-        time.sleep(1)
-        
-        press_button(button_off[5])
-        time.sleep(1)
     
 if __name__ == "__main__":
     main()
