@@ -40,7 +40,7 @@ def init_gpio():
     button_off[1] = 23 #19
     button_off[2] = 20
     button_off[3] = 21
-    button_off[4] = 23
+    button_off[4] = 24 #23
     button_off[5] = 19 #24
 
     # set all gpio pins to output instead of input
